@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        int length = Integer.parseInt(scan.nextLine());
+        int [][] old = new int[length][length];
+        int [][] arr = new int[length][length];
+        for (int i = 0; i < length; i++){
+            for (int k = 0; k < length; k++){
+                old[i][k] = scan.nextInt();
+            }
+            System.out.println("");
+        }
+        boolean orderRow = orderRow(old);
+        boolean orderCol = orderCol(old);
+        if ((orderRow && orderCol)){
+            for (int i = 0; i<length; i++){
+                for(int j = 0; j<length; j++){
+                    arr[i][j] = old[length -1 - i][length-1 - j];
+                }
+            }
+        }else if(orderRow && !orderCol){
+            for (int i = 0; i<length; i++){
+                for (int j = 0; j < length; j++) {
+                    arr[i][j] = old [length-1-j][i];
+                }
+            }
+        }else if (orderCol && !orderRow){
+            for (int i = 0; i<length; i++){
+                for (int j = 0; j < length; j++) {
+                    arr[i][j] = old [j][length-1-i];
+                }
+            }
+        }else{
+            for (int i = 0; i < length; i++) {
+                for (int j = 0; j < length; j++) {
+                    arr[i][j] = old[i][j];
+                }
+            }
+        }
+        printMatrix(arr);
+    }
+    public static boolean orderRow (int[][] old){
+        
+            if ((old[0][0] > old[1][0])){
+                return true;
+            }
+        
+        return false;
+    }
+    public static boolean orderCol (int[][] old){
+        
+            if ((old[0][0] > old[0][1])){
+                return true;
+            }
+        
+        return false;
+    }
+    public static void printMatrix(int[][] arr){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
