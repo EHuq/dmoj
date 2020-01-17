@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Data {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        String longest = "";
+        for (int i = 0; i <= str.length(); i++) {
+            for (int j = i; j <= str.length(); j++) {
+                String temp = str.substring(i, j);
+                if (check(temp)) {
+                    if (temp.length()>longest.length()) {
+                        longest = temp;
+                    }
+                    
+                }
+            }
+        }
+        System.out.println(longest.length());
+    }
+
+    public static boolean check(String temp) {
+        String reverseString = "";
+
+        for (int i = temp.length() - 1; i >= 0; i--) {
+            reverseString += temp.charAt(i);
+        }
+        return temp.equals(reverseString);
+    }
+}
