@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //j1
+        int f = Integer.parseInt(scan.nextLine());
+        int m1 = Integer.parseInt(scan.nextLine());
+        int m2 = Integer.parseInt(scan.nextLine());
+        int l = Integer.parseInt(scan.nextLine());
+        
+        if ( ( f==9 || f==8 ) && m1==m2 && (l==9 || l==8) ){
+            System.out.println("ignore");
+        }else{
+            System.out.println("answer");
+        }
+    }
+}
