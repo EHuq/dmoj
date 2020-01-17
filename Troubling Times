@@ -1,0 +1,27 @@
+import java.util.*;
+public class ANCT1 {
+	private static Scanner scan;
+	public static void main(String[] args) {
+		scan = new Scanner(System.in);
+		int num = scan.nextInt();
+		int dest = scan.nextInt();
+		int[] intervals= new int[num];
+		int small= 10001;
+		for(int i =0; i<num;i++) {
+			intervals[i]= scan.nextInt();
+		}
+		for (int k=0; k<num; k++) {
+			if (dest%intervals[k]==0) {
+				if(Math.abs(dest/intervals[k])<small) {
+					small = Math.abs(dest/intervals[k]);
+				}	
+			}
+		}
+		if (small>10000 || small< -10000) {
+			System.out.println("This is not the best time for a trip.");
+		}else {
+			System.out.println(Math.abs(small));
+		}
+	}
+
+}
