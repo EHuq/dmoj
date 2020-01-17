@@ -1,0 +1,35 @@
+import java.util.*;
+public class FizzFuzz {
+	private static Scanner scanner;
+	
+	public static void main(String[] args) {
+		scanner = new Scanner(System.in);
+		int N = scanner.nextInt();
+		int k= 1;
+		String first = "";
+		String sec = "";
+		for (int i = 1; i<=N; i++){
+			if (i%7==0 && i%13==0) {
+				first = "Fizz Fuzz";
+			}else if(i%7==0) {
+				first = "Fizz";
+			}else if(i%13==0) {
+				first = "Fuzz";
+			}else {
+				first = Integer.toString(i);
+			}
+			if (k%7==0 && k%13==0) {
+				sec = "Fizz Fuzz";
+			}else if(k%7==0) {
+				sec = "Fizz";
+			}else if(k%13==0) {
+				sec = "Fuzz";
+			}else {
+				sec = Integer.toString(k);
+			}
+			System.out.println(first + " " + sec);
+			k += 2;
+		}
+		
+	}
+}
