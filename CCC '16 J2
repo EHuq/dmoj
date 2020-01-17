@@ -1,0 +1,58 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class J2 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int[][] arr = new int[4][4];
+        for (int i = 0; i < 4; i++) {
+            String[] line = scan.nextLine().split(" ");
+            for (int j = 0; j < 4; j++) {
+                arr[i][j] = Integer.parseInt(line[j]);
+            }
+        }
+        if (cols(arr) && rows(arr)){
+            System.out.println("magic");
+        }else{
+            System.out.println("not magic");
+        }
+    }
+    public static boolean cols(int[][] arr){
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i < 4; i++) {
+            sum2 += arr[0][i];
+        }
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                sum1 += arr[i][j];
+            }
+            if (sum1==sum2){
+                sum2 = sum1;
+                sum1 = 0;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean rows(int[][] arr){
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i < 4; i++) {
+            sum2 += arr[i][0];
+        }
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                sum1 += arr[j][i];
+            }
+            if (sum1==sum2){
+                sum2 = sum1;
+                sum1 = 0;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
