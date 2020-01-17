@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //j2
+        int len = Integer.parseInt(scan.nextLine());
+        String yes = scan.nextLine();
+        String tod = scan.nextLine();
+        int counter = 0;
+        for (int i = 0; i<len; i++){
+            if (yes.charAt(i)== 'C' && tod.charAt(i)== 'C'){
+                counter++;
+            }
+        }
+        System.out.println(counter);
+    }
+}
