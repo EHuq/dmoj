@@ -1,0 +1,30 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class S2 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int maxw = Integer.parseInt(scan.nextLine());
+        int n = Integer.parseInt(scan.nextLine());
+        int[] w = new int[n];
+        int sum = 0;
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            w[i] = Integer.parseInt(scan.nextLine());
+            if (sum <= maxw){
+                sum = sum + w[i];
+                if (count%4 == 0 && count>0) {
+                    sum = sum - w[i-4];
+                    count--;
+                }
+                count++;
+                max = i;
+            }
+        }
+        if (max == 99999){
+            max++;
+        }
+        System.out.println(max);
+    }
+}
